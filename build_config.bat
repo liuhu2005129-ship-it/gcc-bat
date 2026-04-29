@@ -30,6 +30,7 @@ set USE_SINGLE_LINE=0
 :: 单行快速编译命令（仅在 USE_SINGLE_LINE=1 时生效）
 set SINGLE_LINE_CMD=gcc main.c -o AppRelease.exe -O3 -march=native -flto -fomit-frame-pointer -pipe -mwindows -municode -s -fno-ident -Wl,--strip-all -Wl,--build-id=none -lgdi32 -lcomctl32 -lcomdlg32 -lmsimg32
 
-:: 是否使用 UPX 压缩（Release 可选）
+:: 是否使用 UPX 压缩（Release 可选）-USE_UPX=1 → 开启压缩
+set "UPX_PATH=D:\Program\upx\upx.exe"
 set USE_UPX=0
 set UPX_FLAGS=--best --lzma
