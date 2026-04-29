@@ -54,7 +54,9 @@ if "%BUILD_TYPE%"=="Release" if "%RESULT%"=="0" (
     strip --strip-all %OUT_FILE% >nul 2>&1
     objcopy --remove-section .comment %OUT_FILE% >nul 2>&1
     if "%USE_UPX%"=="1" (
-        upx %UPX_FLAGS% %OUT_FILE%
+        "%UPX_PATH%" %UPX_FLAGS% %OUT_FILE%
+        >>"%LOG_FILE%" echo [UPX] 使用参数: %UPX_FLAGS%
+        for %%I in (%OUT_FILE%) do >>"%LOG_FILE%" echo [UPX] 压缩后文件大小: %%~zI 字节
     )
 )
 
